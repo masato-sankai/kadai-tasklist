@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'タスクの投稿に失敗しました。'
-      render 'toppages/index'
+      render :new
     end 
     
   end
@@ -65,6 +65,5 @@ class TasksController < ApplicationController
       redirect_to root_url
     end
   end
-  
   
 end
