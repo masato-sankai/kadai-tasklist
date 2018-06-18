@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = LoginUser.find(params[:id])
+    @user = current_user
     @tasks = @user.tasks.order('created_at DESC').page(params[:page])
     counts(@user)
   end
